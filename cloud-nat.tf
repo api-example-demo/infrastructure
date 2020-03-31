@@ -1,6 +1,6 @@
 resource "google_compute_address" "cloudnat_ips" {
   count   = 2
-  name    = "cloudnat-ip-${count.index}${var.name_sufix}"
+  name    = "cloudnat-ip-${count.index}"
   region  = "us-central1"
 }
 
