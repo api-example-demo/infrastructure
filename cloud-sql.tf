@@ -1,3 +1,7 @@
+data "google_compute_network" "default" {
+  name = "default"
+}
+
 resource "google_compute_global_address" "private_sql_ip_address" {
   provider      = google-beta
   name          = "private-sql-ip-address"
@@ -33,7 +37,7 @@ resource "google_sql_database_instance" "cloud_sql" {
 
     ip_configuration {
       ipv4_enabled    = false
-      private_network = "default"
+      private_network = data.google_compute_network.default.self_link
 
       authorized_networks {
         name  = "cloudnat-ip-0"
