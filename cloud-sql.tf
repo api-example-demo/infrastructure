@@ -4,7 +4,7 @@ resource "google_compute_global_address" "private_sql_ip_address" {
   purpose       = "VPC_PEERING"
   address_type  = "INTERNAL"
   prefix_length = 20
-  network       = "default"
+  network       = data.google_compute_network.default.self_link
 }
 
 resource "google_service_networking_connection" "servicenetworking_vpc_connection" {
