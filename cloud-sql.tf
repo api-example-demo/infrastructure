@@ -1,7 +1,3 @@
-data "google_compute_network" "default" {
-  name = "default"
-}
-
 resource "google_compute_global_address" "private_sql_ip_address" {
   provider      = google-beta
   name          = "private-sql-ip-address"
