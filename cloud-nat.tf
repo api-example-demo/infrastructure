@@ -7,6 +7,7 @@ resource "google_compute_address" "cloudnat_ips" {
 resource "google_compute_router" "cloudnat_router" {
   name    = "cloudnat-router"
   region  = "us-central1"
+  network = "default"
 
   bgp {
     asn = 64514
